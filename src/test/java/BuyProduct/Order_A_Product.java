@@ -27,6 +27,10 @@ public class Order_A_Product {
 	public static FileInputStream fis;
 
 	public static void main(String[] args) throws IOException, InterruptedException, TesseractException {
+		
+		
+		/* Driver Initialization and Launching the Website  */
+		
 		try {
 
 			
@@ -53,31 +57,39 @@ public class Order_A_Product {
 
 	}
 	
+	/*
+	 * Method OrderPlacement to perform the action for signing to Amazon website and
+	 * adding a product and move to the payment gateway
+	 */
 	
-
+	
 	public static void orderPlacement() throws InterruptedException, IOException {
 
-		WebElement accountClick = driver.findElement(By.xpath("//span[contains(text(),'Account & Lists')]"));
-		accountClick.click();
+		WebElement accountClick = driver.findElement(By.xpath("//span[contains(text(),'Account & Lists')]")); 
+		accountClick.click(); /* Clicking the Accounts button */
 
 		WebElement userLogin = driver.findElement(By.name("email"));
-		userLogin.sendKeys("9551969575");
+		userLogin.sendKeys("9551969575"); /* Providing the phonenum in the login page */
 
 		WebElement continueBtn = driver.findElement(By.xpath("//input[@type='submit']"));
-		continueBtn.click();
+		continueBtn.click(); /*Clciking to continue  */
 
 		WebElement passwrd = driver.findElement(By.name("password"));
-		passwrd.sendKeys("Rinu@7245");
+		passwrd.sendKeys("Rinu@7245"); /* Providing the Password  */
 
 		WebElement signInBtn = driver.findElement(By.xpath("//input[@id='signInSubmit']"));
-		signInBtn.click();
+		signInBtn.click(); /* Clicking on SignIn  */
 
 		WebElement search = driver.findElement(By.id("twotabsearchtextbox"));
 		driver.findElement(By.id("twotabsearchtextbox"));
-		search.sendKeys("Smart Watches");
+		search.sendKeys("Smart Watches"); /* Searching for the Product Smart Watches */
 		Thread.sleep(3000);
 		
-		ScreenshotCapture();
+		ScreenshotCapture(); /*Screenshot Capture Code lies here*/
+		
+		/*
+		 * Selecting a product in a for Smart watches for boys against a dynamic suggestive drop down 
+		 * */
 		List<WebElement> sugglist= driver.findElements(By.xpath("//div[@class='left-pane-results-container']/div"));
 		
 		for(WebElement dplist:sugglist) {
@@ -91,7 +103,7 @@ public class Order_A_Product {
 		}
 		
 		WebElement product = driver.findElement(By.xpath("//button[@id='a-autoid-4-announce']"));
-		product.click();
+		product.click(); 
 		WebElement cartClick = driver.findElement(By.xpath("//span[@id='nav-cart-count']"));
 		cartClick.click();
 		ScreenshotCapture();
@@ -104,6 +116,8 @@ public class Order_A_Product {
 		ScreenshotCapture();
 	}
 	
+	
+	/* Capture Screenshot code */
 	public static void ScreenshotCapture() throws IOException {
 		Date d = new Date();
 		String fileName = d.toString().replace(":", "_").replace(" ", "_") + ".jpg";
