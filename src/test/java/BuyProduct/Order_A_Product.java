@@ -58,7 +58,7 @@ public class Order_A_Product {
 	}
 	
 	/*
-	 * Method OrderPlacement to perform the action for signing to Amazon website and
+	 * Method OrderPlacement to perform the action for signing to Amazon Web site and
 	 * adding a product and move to the payment gateway
 	 */
 	
@@ -69,10 +69,10 @@ public class Order_A_Product {
 		accountClick.click(); /* Clicking the Accounts button */
 
 		WebElement userLogin = driver.findElement(By.name("email"));
-		userLogin.sendKeys("9551969575"); /* Providing the phonenum in the login page */
+		userLogin.sendKeys("9551969575"); /* Providing the phone num in the login page */
 
 		WebElement continueBtn = driver.findElement(By.xpath("//input[@type='submit']"));
-		continueBtn.click(); /*Clciking to continue  */
+		continueBtn.click(); /*Clicking to continue  */
 
 		WebElement passwrd = driver.findElement(By.name("password"));
 		passwrd.sendKeys("Rinu@7245"); /* Providing the Password  */
